@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  capacity: 1
+  first_nba_season: MyString
+  description: MyText
+  team: one
+  latitude: 9.99
+  longitude: 9.99
+
+two:
+  name: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  capacity: 1
+  first_nba_season: MyString
+  description: MyText
+  team: two
+  latitude: 9.99
+  longitude: 9.99

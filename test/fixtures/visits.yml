@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  arena: one
+  visited_on: 2026-03-26
+  opponent: MyString
+  rating: 1
+  notes: MyText
+
+two:
+  user: two
+  arena: two
+  visited_on: 2026-03-26
+  opponent: MyString
+  rating: 1
+  notes: MyText
