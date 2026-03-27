@@ -1,16 +1,53 @@
-<h1>NBA Arenas</h1>
+<div class="min-h-screen bg-slate-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold text-slate-900">NBA Arenas</h1>
+      <p class="mt-2 text-slate-600">
+        <%= @arenas.count %> arenas
+      </p>
+    </div>
 
-<p><%= @arenas.count %> arenas</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+      <% @arenas.each do |arena| %>
+        <%= link_to arena_path(arena), class: "group block bg-white rounded-2xl overflow-hidden shadow-md border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition duration-200" do %>
+          <div class="h-56 w-full overflow-hidden bg-slate-200">
+            <% if arena_image_for(arena).present? %>
+              <%= image_tag arena_image_for(arena),
+                  alt: arena.name,
+                  class: "h-full w-full object-cover group-hover:scale-105 transition duration-300" %>
+            <% else %>
+              <div class="h-full w-full flex items-center justify-center text-slate-500 text-sm">
+                No image yet
+              </div>
+            <% end %>
+          </div>
 
-<% @arenas.each do |arena| %>
-  <div style="margin-bottom: 20px; padding: 12px; border: 1px solid #ccc;">
-    <h2>
-      <%= link_to arena.name, arena_path(arena) %>
-    </h2>
+          <div class="p-5">
+            <h2 class="text-2xl font-semibold text-slate-900 mb-1">
+              <%= arena.name %>
+            </h2>
 
-    <p><strong>Team:</strong> <%= arena.team.name %></p>
-    <p><strong>Location:</strong> <%= arena.city %>, <%= arena.state %></p>
-    <p><strong>Capacity:</strong> <%= number_with_delimiter(arena.capacity) %></p>
-    <p><strong>First NBA Season:</strong> <%= arena.first_nba_season %></p>
+            <p class="text-sm font-medium text-indigo-600 mb-4">
+              <%= arena.team.name %>
+            </p>
+
+            <div class="space-y-2 text-sm text-slate-700">
+              <p>
+                <span class="font-semibold text-slate-900">Location:</span>
+                <%= arena.city %>, <%= arena.state %>
+              </p>
+              <p>
+                <span class="font-semibold text-slate-900">Capacity:</span>
+                <%= number_with_delimiter(arena.capacity) %>
+              </p>
+              <p>
+                <span class="font-semibold text-slate-900">First NBA Season:</span>
+                <%= arena.first_nba_season %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

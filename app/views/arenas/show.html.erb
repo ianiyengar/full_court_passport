@@ -1,9 +1,31 @@
-<h1><%= @arena.name %></h1>
+<div class="max-w-4xl mx-auto px-6 py-8">
+  <%= link_to "← Back to arenas", arenas_path, class: "text-blue-600 hover:underline" %>
 
-<p><strong>Team:</strong> <%= @arena.team.name %></p>
-<p><strong>Location:</strong> <%= @arena.city %>, <%= @arena.state %></p>
-<p><strong>Capacity:</strong> <%= number_with_delimiter(@arena.capacity) %></p>
-<p><strong>First NBA Season:</strong> <%= @arena.first_nba_season %></p>
-<p><strong>Description:</strong> <%= @arena.description %></p>
+  <div class="mt-6 bg-white rounded-2xl shadow overflow-hidden border">
+  <% if arena_image_for(@arena).present? %>
+    <%= image_tag arena_image_for(@arena),
+      alt: @arena.name,
+      class: "w-full h-80 object-cover" %>
+    <% else %>
+    <div class="w-full h-80 bg-gray-200 flex items-center justify-center text-gray-500">
+      No image yet
+    </div>
+  <% end %>
 
-<p><%= link_to "Back to all arenas", arenas_path %></p>
+    <div class="p-8">
+      <h1 class="text-4xl font-bold mb-2"><%= @arena.name %></h1>
+      <p class="text-lg text-gray-600 mb-6"><%= @arena.team.name %></p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <p><span class="font-semibold">Location:</span> <%= @arena.city %>, <%= @arena.state %></p>
+        <p><span class="font-semibold">Capacity:</span> <%= number_with_delimiter(@arena.capacity) %></p>
+        <p><span class="font-semibold">First NBA Season:</span> <%= @arena.first_nba_season %></p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold mb-2">About</h2>
+        <p class="text-gray-700 leading-7"><%= @arena.description %></p>
+      </div>
+    </div>
+  </div>
+</div>
