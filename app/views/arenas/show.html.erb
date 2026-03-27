@@ -1,0 +1,9 @@
+<h1><%= @arena.name %></h1>
+
+<p><strong>Team:</strong> <%= @arena.team.name %></p>
+<p><strong>Location:</strong> <%= @arena.city %>, <%= @arena.state %></p>
+<p><strong>Capacity:</strong> <%= number_with_delimiter(@arena.capacity) %></p>
+<p><strong>First NBA Season:</strong> <%= @arena.first_nba_season %></p>
+<p><strong>Description:</strong> <%= @arena.description %></p>
+
+<p><%= link_to "Back to all arenas", arenas_path %></p>

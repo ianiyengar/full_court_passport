@@ -1,0 +1,16 @@
+<h1>NBA Arenas</h1>
+
+<p><%= @arenas.count %> arenas</p>
+
+<% @arenas.each do |arena| %>
+  <div style="margin-bottom: 20px; padding: 12px; border: 1px solid #ccc;">
+    <h2>
+      <%= link_to arena.name, arena_path(arena) %>
+    </h2>
+
+    <p><strong>Team:</strong> <%= arena.team.name %></p>
+    <p><strong>Location:</strong> <%= arena.city %>, <%= arena.state %></p>
+    <p><strong>Capacity:</strong> <%= number_with_delimiter(arena.capacity) %></p>
+    <p><strong>First NBA Season:</strong> <%= arena.first_nba_season %></p>
+  </div>
+<% end %>
