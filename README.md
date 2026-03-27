@@ -123,8 +123,19 @@ Not implemented yet:
 
 ## Installation
 
-### 1. Clone the repo
+### 1. Clone the repo and run the following commands
 
 ```bash
 git clone <your-repo-url>
 cd full_court_passport
+bundle install
+yarn install
+yarn add -D tailwindcss @tailwindcss/cli esbuild
+rails db:create
+rails db:migrate
+rails db:seed
+yarn build:css
+rails server
+
+### Visit the site on your localhost
+http://localhost:3000
