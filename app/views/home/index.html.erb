@@ -1,0 +1,5 @@
+<div id="home-hero"
+  data-arenas="<%= json_escape(@hero_arenas.map { |arena| { id: arena.id, name: arena.name, teamName: arena.team.name, city: arena.city, state: arena.state, capacity: arena.capacity, firstNbaSeason: arena.first_nba_season, imagePath: asset_path(arena_image_for(arena)) } }.to_json) %>"
+  data-nearest-arena-url="<%= nearest_arena_path %>"
+  data-choose-team-url="<%= choose_team_path %>"
+></div>

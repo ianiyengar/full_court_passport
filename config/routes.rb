@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-  root "arenas#index"
+  root "home#index"
+
+  post "/onboarding/nearest_arena", to: "home#nearest_arena", as: :nearest_arena
+  get "/onboarding/choose_team", to: "home#choose_team", as: :choose_team
+  post "/onboarding/select_team", to: "home#select_team", as: :select_team
+
+  resources :visits, only: [ :index, :new, :create, :edit, :update ]
   resources :arenas, only: [ :index, :show ]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

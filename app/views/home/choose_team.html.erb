@@ -1,0 +1,4 @@
+<div id="team-picker"
+  data-teams="<%= json_escape(@teams.map { |team| { id: team.id, name: team.name, city: team.city, abbreviation: team.abbreviation } }.to_json) %>"
+  data-select-team-url="<%= select_team_path %>"
+></div>

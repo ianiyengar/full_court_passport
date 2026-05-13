@@ -14,9 +14,17 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
+    <div class="flash-container" style="position:fixed;top:1rem;right:1rem;z-index:50;max-width:24rem;">
+      <% flash.each do |type, message| %>
+        <div class="mb-3 rounded-3xl border px-5 py-4 shadow-lg" style="background-color:#111827;color:#f8fafc;">
+          <strong><%= type.to_s.capitalize %>:</strong> <%= message %>
+        </div>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

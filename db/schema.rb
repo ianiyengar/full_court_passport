@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_03_27_150451) do
+ActiveRecord::Schema[7.2].define(version: 2026_05_12_100000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,5 +39,22 @@ ActiveRecord::Schema[7.2].define(version: 2026_03_27_150451) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "visits", force: :cascade do |t|
+    t.bigint "arena_id", null: false
+    t.integer "status", default: 1, null: false
+    t.text "notes"
+    t.text "concessions"
+    t.text "favorite_spots"
+    t.date "game_date"
+    t.string "score_url"
+    t.string "photo_url"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["arena_id"], name: "index_visits_on_arena_id"
+    t.index ["user_id"], name: "index_visits_on_user_id"
+  end
+
   add_foreign_key "arenas", "teams"
+  add_foreign_key "visits", "arenas"
 end
